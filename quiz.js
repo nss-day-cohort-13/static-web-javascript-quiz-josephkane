@@ -48,32 +48,51 @@
 // var tree = "";
 // console.log("tree:", tree);
 
+
+
+var heightBox = document.getElementById("treeHeight");
+heightBox.addEventListener("keypress", enter);
+
+var charBox = document.getElementById("character");
+charBox.addEventListener("keypress", enter);
+
+
+
+
+function enter (e) {
+	var key = e.keyCode;
+	if (13 === key)	{
+		middle();
+	}
+
+function middle () {
+	var treeObject = {};
+	treeObject.height = heightBox.value;
+	treeObject.character = charBox.value;
+	buildTree(treeObject)
+}
+
 var button = document.getElementById("submitButton");
+button.addEventListener("click", middle);
 
-
-
-
-
-function buildTree () {
+function buildTree (x) {
 
 	var tree = "";
-	var height = document.getElementById("treeHeight").value;
-	var char = document.getElementById("character").value;
 
-	for (var i = 0; i < height; i++) {
-		tree += " ".repeat(height - i - 1) + char.repeat((2 * i) + 1) + '\n';
+
+	if (x.height === undefined || x.character === undefined) {
+		alert("Oops! I'm missing information, Please fill out the WHOLE form.");
+
+	}
+
+	for (var i = 0; i < x.height; i++) {
+		tree += " ".repeat(x.height - i - 1) + x.character.repeat((2 * i) + 1) + '\n';
 	}
 
 		console.log(tree);
 }
 
-button.addEventListener("click", buildTree);
 
-
-function enter (e) {
-	if (13 === e.keyCode)	{
-		buildTree();
-	}
 }
 
 
