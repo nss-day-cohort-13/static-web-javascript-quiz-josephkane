@@ -50,9 +50,11 @@
 
 var button = document.getElementById("submitButton");
 
-button.addEventListener("click", buildTree);
 
-function buildTree (clickEvent) {
+
+
+
+function buildTree () {
 
 	var tree = "";
 	var height = document.getElementById("treeHeight").value;
@@ -65,7 +67,13 @@ function buildTree (clickEvent) {
 		console.log(tree);
 }
 
+button.addEventListener("click", buildTree);
 
 
+function enter (e) {
+	if (13 === e.keyCode)	{
+		buildTree();
+	}
+}
 
 
