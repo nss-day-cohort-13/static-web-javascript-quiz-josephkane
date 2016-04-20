@@ -29,34 +29,41 @@
 
 // Here's what the pine tree should look like when you specify a height of 7, and use the asterisk character.
 
-//       *                spaces= 6, symbol= 1 (0) + 1
-//      ***               spaces= 5, symbol= 3 (1) + 2
-//     *****              spaces= 4, symbol= 5 (2) + 3
-//    *******             spaces= 3, symbol= 7 (3) + 4
-//   *********            spaces= 2, symbol= 9 (4) + 5
-//  ***********           spaces= 1, symbol= 11(5) + 6
-// *************          spaces= 0, symbol= 13(6) + 7
+//       *                spaces= 6, symbol= 1  (0) + 1
+//      ***               spaces= 5, symbol= 3  (1) + 2
+//     *****              spaces= 4, symbol= 5  (2) + 3
+//    *******             spaces= 3, symbol= 7  (3) + 4
+//   *********            spaces= 2, symbol= 9  (4) + 5
+//  ***********           spaces= 1, symbol= 11 (5) + 6
+// *************          spaces= 0, symbol= 13 (6) + 7
 
 
 
-var height = 7  //prompt("How high?");
-console.log("height:", height);
+// var height = document.getElementById("treeHeight").value;
+// console.log("height:", height);
 
-var char = "*" //prompt("What key?");
-console.log("character:", char);
+// var char = document.getElementById("character").value;
+// console.log("character:", char);
 
-var tree = "";
+// var tree = "";
 // console.log("tree:", tree);
 
+var button = document.getElementById("submitButton");
 
+button.addEventListener("click", buildTree);
+
+function buildTree (clickEvent) {
+
+	var tree = "";
+	var height = document.getElementById("treeHeight").value;
+	var char = document.getElementById("character").value;
 
 	for (var i = 0; i < height; i++) {
-		tree += " ".repeat(height - i - 1) + '*'.repeat(2 * i + 1) + '\n';
+		tree += " ".repeat(height - i - 1) + char.repeat((2 * i) + 1) + '\n';
 	}
 
 		console.log(tree);
-
-
+}
 
 
 
