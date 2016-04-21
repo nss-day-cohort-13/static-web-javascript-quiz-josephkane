@@ -64,12 +64,16 @@ function enter (e) {
 	if (13 === key)	{
 		middle();
 	}
+}
+
+var treeObject = {};
 
 function middle () {
-	var treeObject = {};
 	treeObject.height = heightBox.value;
 	treeObject.character = charBox.value;
 	buildTree(treeObject)
+	console.log("height:", treeObject.height);
+	console.log("character", treeObject.character);
 }
 
 var button = document.getElementById("submitButton");
@@ -80,9 +84,8 @@ function buildTree (x) {
 	var tree = "";
 
 
-	if (x.height === undefined || x.character === undefined) {
+	if (x.height === "" || x.character === "") {
 		alert("Oops! I'm missing information, Please fill out the WHOLE form.");
-
 	}
 
 	for (var i = 0; i < x.height; i++) {
@@ -90,9 +93,11 @@ function buildTree (x) {
 	}
 
 		console.log(tree);
+
+		console.log("object:", treeObject);
 }
 
 
-}
+
 
 
